@@ -35,6 +35,15 @@ inputList.forEach(input => {
             element.target.classList.add('input-error');
         }
     });
+
+    
+    input.addEventListener("keyup", element => {
+        let n = Number(element.target.value);
+        if (!isNumber(n)){
+            element.target.value = "";
+            element.preventDefault();
+        }
+    });
 });
 
 function isNumber(n) {
