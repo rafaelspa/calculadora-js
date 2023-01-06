@@ -23,3 +23,20 @@ function clear() {
     document.getElementById("number2").value = "";
     document.getElementById('result-box').innerHTML = "0";
 }
+
+const inputList = Array.from(document.querySelectorAll('.form-input'));
+
+inputList.forEach(input => {
+    input.addEventListener("change", element => {
+        const elementValue = Number(element.target.value);
+        if (isNumber(elementValue)) {
+            element.target.classList.remove('input-error');
+        } else {
+            element.target.classList.add('input-error');
+        }
+    });
+});
+
+function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+    }
